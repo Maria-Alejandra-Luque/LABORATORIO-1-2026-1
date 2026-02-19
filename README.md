@@ -1,5 +1,22 @@
 # LABORATORIO-1
 ## ESTADISTICA
+Durante la práctica, vamos acalcular parámetros
+estadísticos fundamentales de señales biomédicas reales y sintéticas con el fin
+de proporcionar una descripción de esta y establecer posibles relaciones entre
+los valores estadísticos obtenidos y el proceso fisiológico subyacente.<br>
+
+### OBJETIVOS:
+#### Objetivo General:
+Caracterizar una señal biomédica en función de
+parámetros estadísticos.
+#### Objetivos Específicos
+- Identificar las principales magnitudes estadísticas que describen una señal
+biomédica.
+- Emplear funciones aritméticas y comandos específicos de un entorno de
+programación para calcular diferentes parámetros estadísticos de una
+señal biomédica.
+- Plantear hipótesis desde la fisiología que expliquen los valores estadísticos
+obtenidos. 
 
 ## PARTE A
 En esta primera etapa se procedió a seleccionar y descargar una señal fisiológica desde la plataforma PhysioNet, verificando previamente que su duración fuera suficiente para permitir el cálculo adecuado de los estadísticos solicitados. Posteriormente, la señal fue cargada en el entorno de Python y se emplearon librerías como *matplotlib* para su visualización gráfica. Este proceso constituyó el punto de partida del estudio estadístico, apoyándose en herramientas computacionales que permiten caracterizar de manera precisa las principales propiedades de la señal analizada.
