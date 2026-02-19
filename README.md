@@ -573,3 +573,4 @@ En la gráfica se observa que el ruido impulso genera picos abruptos positivos y
 En la gráfica se observa que el ruido tipo artefacto introduce una variación periódica de baja frecuencia que modifica la línea base de la señal ECG. A diferencia del ruido gaussiano, este no es completamente aleatorio, sino que genera una oscilación continua que se superpone a la señal original. La morfología del ECG aún se distingue, pero se aprecia una distorsión en la base. El valor de SNR ≈ 21.14 dB indica que la señal sigue predominando sobre el ruido, aunque el efecto es más notable que en el caso del ruido gaussiano.<br><br>
 
 
+*** TRABAJADO CON JUPYTER: http://localhost:8889/notebooks/Desktop/Procesamiento%202026/Untitled.ipynb? ***
