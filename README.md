@@ -50,6 +50,15 @@ Suma total de todos los valores: -199094.335000
 Número total de muestras: 650000
 Media de la señal: -0.306299
 ```
+Ahora al realizar la comparación del resultado obtenido desde las funciones propias de Pyton fue:
+```
+###Funcion Pyton
+media = np.mean(senal)
+print("Media Según Pyton:", media)
+```
+```
+Media Según Pyton: -0.3062989769230769
+```
 ## PARTE B
 Durante la segunda parte de nuestra practica, una señal fisiológica fue producida experimentalmente por medio del generador de señales biológicas del laboratorio.
 Se empleó un sistema de adquisición de datos (DAQ) para obtenerlo, el cual fue conectado físicamente al PC por medio de USB y configurado con el controlador NI-DAQmx.
