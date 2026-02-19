@@ -295,7 +295,16 @@ Este código realiza el cálculo manual de las principales medidas estadísticas
 ## PARTE C
 ### Relación Señal-Ruido (SNR)
 La Relación Señal-Ruido (SNR, Signal to Noise Ratio) es una medida que permite cuantificar qué tan fuerte es una señal en comparación con el ruido que la afecta. Matemáticamente, se define como la relación entre la potencia de la señal original y la potencia del ruido. Generalmente se expresa en decibeles (dB) y se calcula como:<br>
-SNR=10log10​(Pruido​Psen~al​​) <br>
+
+SNR = 10 · log10 ( P_señal / P_ruido )<br>
+
+Donde:<br>
+
+- P_señal: Potencia promedio de la señal original.<br>
+- P_ruido: Potencia promedio del ruido agregado.<br>
+
+El resultado se expresa en decibeles (dB).  <br>
+
 **Un valor alto de SNR indica que la señal es mucho más fuerte que el ruido, mientras que un valor bajo indica que el ruido afecta significativamente la señal.**<br>
 
 #### Ruido gaussiano
