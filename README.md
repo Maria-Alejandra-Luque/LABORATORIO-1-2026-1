@@ -10,6 +10,8 @@ El DAQ recibió la señal analógica del generador, y esta fue transformada a di
 estadístico y poder realizar su grafica correspondiente.De esta manera, se calcularon los parámetros estadísticos obtenidos en la Parte A y se comparó la señal descargada
 de Physionet con la señal capturada usando el DAQ, lo que evidenció sus semejanzas y diferencias.
 ### ALGORITMO 
+
+
 ### CODIGO
 #### Grafica de la señal 
 Se importó la señal generada mediante el generador biológico y capturada con la STM32. La señal fue almacenada en formato .txt y 
@@ -93,6 +95,45 @@ print("Nueva media:", np.mean(ecg_centrada))
 
 ##### Estadistica Descriptiva Avanzada 
 
+```
+from scipy.stats import skew, kurtosis
+# Coeficiente de variación (usar señal original)
+cv = np.std(ecg) / abs(np.mean(ecg))
+print("Coeficiente de variación:", cv)
+# Asimetría
+print("Asimetría:", skew(ecg_centrada))
+# Curtosis
+print("Curtosis:", kurtosis(ecg_centrada))
+```
+Este código importa las funciones `skew` y `kurtosis` de la librería **SciPy** para calcular medidas estadísticas de la señal.
+Primero, calcula el coeficiente de variación dividiendo la desviación estándar entre el valor absoluto de la media de la señal 
+original (`ecg`). Luego, obtiene la asimetría y la curtosis de la señal centrada (`ecg_centrada`). Finalmente, imprime en pantalla cada uno de estos resultados. <br>
+
+```
+# Histograma
+plt.figure(figsize=(6,4))
+plt.hist(ecg_centrada, bins=30)
+plt.title("Histograma de la señal ECG")
+plt.xlabel("Amplitud")
+plt.ylabel("Frecuencia")
+plt.grid()
+plt.show()
+```
+Este fragmento de código genera un histograma de la señal ECG centrada (`ecg_centrada`). Primero, se crea una figura con un tamaño de 6x4 pulgadas. Luego, se utiliza `plt.hist` para representar la distribución de los valores de la señal en 30 intervalos (bins), lo que permite observar la frecuencia con la que aparecen ciertas amplitudes. Finalmente, se agregan el título, las etiquetas de los ejes, una cuadrícula para facilitar la lectura y se muestra la gráfica en pantalla.<br>
+
+| ESTADISTICO     | VALOR   |
+|-----------------|----------|
+|Coeficiente de variación | 0.4256958700697329 |
+|Asimetría | 4.203297970920634 |
+|Curtosis | 19.41228280465075 
+
+<img width="425" height="282" alt="image" src="https://github.com/user-attachments/assets/d4bfe223-183f-456a-be18-5e8b51bfc25a" />
+
+- El coeficiente de variación indica una variabilidad moderada de la señal respecto a su valor promedio, asociada principalmente a la presencia de los complejos QRS.<br>
+- La asimetría positiva elevada indica que la distribución de amplitudes no es simétrica, presentando valores extremos positivos asociados a los picos R del complejo QRS. <br>
+- La curtosis alta indica que la mayoría de los valores de la señal están concentrados cerca del promedio, pero existen algunos picos muy grandes. En el caso del ECG, esto se debe a los picos R del complejo QRS, que tienen una amplitud mayor que el resto de la señal. <br>
+
+En general, el análisis estadístico permitió entender mejor el comportamiento de la señal ECG. Se observó que la mayoría de los valores se concentran alrededor de la línea base, pero existen picos altos asociados a los latidos, lo que hace que la distribución no sea normal. La variabilidad y los valores extremos obtenidos son coherentes con la forma típica de una señal electrocardiográfica. En conjunto, los resultados muestran que la señal fue correctamente adquirida y procesada. <br>
 
 
 ## PARTE C
