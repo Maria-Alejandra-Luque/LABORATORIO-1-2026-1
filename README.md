@@ -230,6 +230,8 @@ plt.title('Histograma de la Señal Según Pyton')
 plt.show()
 ```
 y la gráfica obtenida fue:
+
+
 ![Señal ECG](señalpyton.jpeg)
 #### *Asimetría*
 Es la encargada de medir la falta de uniformidad en la distribución de la señal respecto a su media. En cardiología, permite identificar si los datos se concentran en valores bajos o altos, lo que ayuda a detectar comportamientos atípicos que no son visibles con un simple promedio.
