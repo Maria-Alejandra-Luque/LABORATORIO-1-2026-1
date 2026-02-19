@@ -116,7 +116,7 @@ Y el resultado obtenido fue:
 Desviación estandar  de Pyton:0.193200
 ```
 #### *Coeficiente de Variación*
-Es una medida de relaciona la desviación estándar con la media de la señal, esto facilita la comparación de varios registros cardiacos para identificar irregularidades.
+Es una medida de relaciona la desviación estándar con la media de la señal, esto facilita la comparación de varios registros cardiacos para identificar irregularidades.El codigo Manual fue:
 ```
 if abs(media) < 1e-10:  # Umbral muy pequeño para considerar como cero
     coeficiente_variacion = float('inf')  # Infinito si media es cero
@@ -148,7 +148,75 @@ Coeficiente de variación Según Pyton: 63.08%
 #### *Histograma*
 Esta representación gráfica expone la distribución de la señal, permitiendo visualizar de manera inmediata la frecuencia de los datos y la extensión de sus rangos.
 
+```
+numero_bins = 100
 
+# ==============================
+# RANGO DE DATOS
+# ==============================
+
+valor_min = np.min(senal)
+valor_max = np.max(senal)
+rango_total = valor_max - valor_min
+
+print(f"Rango: {valor_min:.6f} a {valor_max:.6f}")
+print(f"Rango total: {rango_total:.6f}")
+
+# ==============================
+# ANCHO DEL BIN
+# ==============================
+
+ancho_bin = rango_total / numero_bins
+print(f"Ancho de bin: {ancho_bin:.6f}")
+
+# ==============================
+# LIMITES
+# ==============================
+
+limites_bins = [valor_min + i * ancho_bin for i in range(numero_bins + 1)]
+
+# ==============================
+# CONTEO MANUAL
+# ==============================
+
+conteo_bins = [0] * numero_bins
+
+for valor in senal:
+    if valor == valor_max:
+        bin_index = numero_bins - 1
+    else:
+        bin_index = int((valor - valor_min) / ancho_bin)
+
+    if bin_index >= numero_bins:
+        bin_index = numero_bins - 1
+    if bin_index < 0:
+        bin_index = 0
+
+    conteo_bins[bin_index] += 1
+
+# ==============================
+# GRAFICAR HISTOGRAMA MANUAL
+# ==============================
+
+plt.figure(figsize=(12,6))
+
+for i in range(numero_bins):
+    x = limites_bins[i]
+    width = ancho_bin
+    height = conteo_bins[i]
+    plt.bar(x, height, width=width, align='edge', edgecolor='black')
+
+plt.title("Histograma manual ECG")
+plt.xlabel("Valor Señal")
+plt.ylabel("Frecuencia")
+
+media = np.mean(senal)
+plt.axvline(media, linestyle='--', label=f"Media: {media:.4f}")
+
+plt.legend()
+plt.grid()
+plt.show()
+```
 
 
 
