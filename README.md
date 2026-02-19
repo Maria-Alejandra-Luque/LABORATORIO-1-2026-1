@@ -26,7 +26,7 @@ En el codigo se programo para permirir la visualización de 10 segundos de la se
 - *plt.plot()*: Se encarga de dibujarla señal.
 - *plt.xlabel() y plt.ylabel()* Se encargan de etiquetar  los ejes.
 
-#### Calculos Estadisticos
+#### Cálculos Estadisticos
 #### *Cálculo de la media*
 La media aritmética representa el promedio de la señal, permitiendo establecer referencias de una actividad normal cardiaca para poder así realizar una correcta detección de  patrones anormales. El codigo manual se realizo de la siguente manera
 ```
@@ -61,6 +61,43 @@ Media Según Pyton: -0.3062989769230769
 ```
 
 #### *Desviación Estandar*
+Esta medida permite identificar qué tanto varía la señal en comparación con su promedio. Es importante para analizar el comportamiento cardíaco, ya que una cifra alta evidencia fluctuaciones drásticas en la actividad del corazón.
+```
+import math
+#calculo las diferencias al cuadrado con respecto a la media
+suma_cuadrados = 0
+for i in range(len(senal)):
+    # Se calcula la diferencia entre cada valor y la media
+    diferencia = senal[i] - media
+    # Elevar al cuadrado la diferencia
+    diferencia_cuadrado = diferencia * diferencia
+    # Sumar todas las diferencias al cuadrado
+    suma_cuadrados += diferencia_cuadrado
+
+print(f"Suma de diferencias al cuadrado: {suma_cuadrados:.6f}")
+#Calcular la varianza (promedio de las diferencias al cuadrado)
+varianza = suma_cuadrados / numero_muestras
+print(f"Varianza: {varianza:.6f}")
+#Calcular la desviación estándar (raíz cuadrada de la varianza)
+desviacion_estandar = math.sqrt(varianza)
+print(f"Desviación estándar: {desviacion_estandar:.6f}")
+```
+Obteniedo como resultado:
+```
+Suma de diferencias al cuadrado: 24261.941003
+Varianza: 0.037326
+Desviación estándar: 0.193200
+```
+Ahora se procedio a comparar el valor obtenido de manera manual con el valor conseguido de las librerias
+```
+#Funcion Pyton
+std_signals=np.std(senal)
+print(f"Desviación estandar  de Pyton:{std_signals:.6f}")
+```
+Y el resultado obtenido fue:
+```
+Desviación estandar  de Pyton:0.193200
+```
 ## PARTE B
 Durante la segunda parte de nuestra practica, una señal fisiológica fue producida experimentalmente por medio del generador de señales biológicas del laboratorio.
 Se empleó un sistema de adquisición de datos (DAQ) para obtenerlo, el cual fue conectado físicamente al PC por medio de USB y configurado con el controlador NI-DAQmx.
