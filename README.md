@@ -425,6 +425,20 @@ Coeficiente de variación | 0.425695870069733 |
 <br> 
 Este código realiza el cálculo manual de las principales medidas estadísticas de la señal ECG sin utilizar funciones automáticas de NumPy. Primero, carga los datos desde el archivo y separa la señal. Luego, calcula la media sumando todos los valores y dividiéndolos entre el número total de datos. A partir de esta media, obtiene la varianza usando la fórmula matemática, y la desviación estándar como la raíz cuadrada de la varianza. También determina el valor máximo y mínimo comparando cada dato uno por uno. Finalmente, calcula el coeficiente de variación y muestra todos los resultados en pantalla. <br>
 
+#### Comparación de señales
+
+| ESTADISTICO     | SEÑAL A | SEÑAL B| 
+|-----------------|----------|----------|
+|Media | -0.3063 |-1.4836 |
+| Desviación estándar | 0.1932 |0.6316 |
+|Coeficiente de variación |0.63 (63.08%) |0.43 (42.6%) |
+
+- Esto indica que la señal B (generada) tenía mayor offset inicial.
+- La señal B (generada) tiene mucha más dispersión. Eso significa que tiene picos más grandes o mayor variabilidad.
+- La Parte A presenta mayor variabilidad relativa respecto a su media <br>
+
+En la comparación entre la Parte A (señal real) y la Parte B (señal generada), se observa que la señal generada presenta una mayor desviación estándar, lo que indica una mayor dispersión en sus valores. Sin embargo, la señal real muestra un mayor coeficiente de variación, lo que significa que su variabilidad es más significativa en relación con su media. Además, la señal generada presentó un mayor desplazamiento inicial (offset), mientras que la señal real estuvo más cercana a cero. En general, ambas señales muestran comportamientos coherentes con su naturaleza, siendo la señal real más variable en términos relativos y la señal generada con mayor amplitud absoluta.<br><br> 
+
 ## PARTE C
 ### Relación Señal-Ruido (SNR)
 La Relación Señal-Ruido (SNR, Signal to Noise Ratio) es una medida que permite cuantificar qué tan fuerte es una señal en comparación con el ruido que la afecta. Matemáticamente, se define como la relación entre la potencia de la señal original y la potencia del ruido. Generalmente se expresa en decibeles (dB) y se calcula como:<br>
