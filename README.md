@@ -213,7 +213,7 @@ plt.legend()
 plt.grid()
 plt.show()
 
-```
+
 
 ## PARTE B
 Durante la segunda parte de nuestra practica, una señal fisiológica fue producida experimentalmente por medio del generador de señales biológicas del laboratorio.
