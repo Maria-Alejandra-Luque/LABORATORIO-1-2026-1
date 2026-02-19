@@ -147,7 +147,7 @@ Coeficiente de variación Según Pyton: 63.08%
 ```
 #### *Histograma*
 Esta representación gráfica expone la distribución de la señal, permitiendo visualizar de manera inmediata la frecuencia de los datos y la extensión de sus rangos.
-```
+
 
 
 
