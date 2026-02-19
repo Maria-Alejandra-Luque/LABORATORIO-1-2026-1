@@ -315,7 +315,7 @@ El ruido impulso, también conocido como ruido tipo “sal y pimienta”, se car
 El ruido tipo artefacto simula interferencias más estructuradas, como movimientos o perturbaciones externas, y suele representarse como señales de baja frecuencia superpuestas a la señal original. Después de agregar este tipo de ruido, se calcula el SNR para evaluar cuánto afecta a la señal.<br>
 
 ### Algoritmo 
-<img width="377" height="311" alt="image" src="https://github.com/user-attachments/assets/4e725fc6-ea8c-4dae-ba5d-c26c73ab87ea" /><br>
+<img width="577" height="511" alt="image" src="https://github.com/user-attachments/assets/4e725fc6-ea8c-4dae-ba5d-c26c73ab87ea" /><br>
 
 ### Codigo 
 
