@@ -221,8 +221,16 @@ Y la gráfica manual obtenida fue:
 
  ![Señal ECG](histograma.jpeg)
  
-
-
+Y para la comparación de cálculos de libreria el codigo fue:
+```
+plt.hist(senal, bins=100, edgecolor='pink')
+plt.xlabel('Valor Señal')
+plt.ylabel('Frecuencia ')
+plt.title('Histograma de la Señal Según Pyton')
+plt.show()
+```
+y la gráfica obtenida fue:
+![Señal ECG](señalpyton.jpeg)
 ## PARTE B
 Durante la segunda parte de nuestra practica, una señal fisiológica fue producida experimentalmente por medio del generador de señales biológicas del laboratorio.
 Se empleó un sistema de adquisición de datos (DAQ) para obtenerlo, el cual fue conectado físicamente al PC por medio de USB y configurado con el controlador NI-DAQmx.
