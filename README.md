@@ -218,6 +218,7 @@ plt.grid()
 plt.show()
 ```
 Y la gráfica manual obtenida fue:
+
  ![Señal ECG](histograma.jpeg)
  
 
