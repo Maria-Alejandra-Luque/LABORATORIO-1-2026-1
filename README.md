@@ -27,9 +27,9 @@ En el codigo se programo para permirir la visualización de 10 segundos de la se
 - *plt.xlabel() y plt.ylabel()* Se encargan de etiquetar  los ejes.
 
 #### Calculos Estadisticos
-#####Cálculo de la media
+#### *Cálculo de la media*
 La media aritmética representa el promedio de la señal, permitiendo establecer referencias de una actividad normal cardiaca para poder así realizar una correcta detección de  patrones anormales. El codigo manual se realizo de la siguente manera
-´´´
+```
 suma_total = 0
 for i in range(len(senal)):
     suma_total += senal[i]  
@@ -43,7 +43,7 @@ print("\n--- RESULTADOS DEL CÁLCULO DE LA MEDIA ---")
 print(f"Suma total de todos los valores: {suma_total:.6f}")
 print(f"Número total de muestras: {numero_muestras}")
 print(f"Media de la señal: {media:.6f}")
-´´´
+```
 
 
 ## PARTE B
