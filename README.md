@@ -44,7 +44,11 @@ print(f"Suma total de todos los valores: {suma_total:.6f}")
 print(f"Número total de muestras: {numero_muestras}")
 print(f"Media de la señal: {media:.6f}")
 ```
+Este codigo dio como resultado:
 
+Suma total de todos los valores: -199094.335000
+Número total de muestras: 650000
+Media de la señal: -0.306299
 
 ## PARTE B
 Durante la segunda parte de nuestra practica, una señal fisiológica fue producida experimentalmente por medio del generador de señales biológicas del laboratorio.
