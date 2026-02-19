@@ -317,3 +317,111 @@ El ruido tipo artefacto simula interferencias más estructuradas, como movimient
 ### Algoritmo 
 
 ### Codigo 
+
+```
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.loadtxt("aleja.txt")
+tiempo = data[:,0]
+ecg = data[:,1]
+n = len(ecg)
+
+# FUNCIÓN PARA CALCULAR SNR
+def calcular_snr(signal, noise):
+    potencia_senal = 0
+    potencia_ruido = 0
+    
+    for i in range(len(signal)):
+        potencia_senal += signal[i]**2
+        potencia_ruido += noise[i]**2
+    
+    potencia_senal = potencia_senal / len(signal)
+    potencia_ruido = potencia_ruido / len(noise)
+    
+    snr = 10 * np.log10(potencia_senal / potencia_ruido)
+    return snr
+```
+En este fragmento primero se carga la señal ECG y se separan en dos arreglos: uno para el tiempo y otro para la amplitud de la señal. Después, se define una función llamada `calcular_snr` que calcula la relación señal-ruido de forma manual. Dentro de la función se obtiene la potencia de la señal y del ruido sumando el cuadrado de cada valor y dividiendo entre el número total de muestras. Finalmente, se aplica la fórmula del SNR en decibeles usando el logaritmo y se devuelve el resultado, lo que permite medir qué tanto afecta el ruido a la señal original.<br> 
+
+```
+# a) RUIDO GAUSSIANO
+
+ruido_gauss = np.random.normal(0, 0.1, n)
+senal_gauss = ecg + ruido_gauss
+
+snr_gauss = calcular_snr(ecg, ruido_gauss)
+print("SNR con ruido gaussiano:", snr_gauss, "dB")
+
+plt.figure(figsize=(10,4))
+plt.plot(tiempo, senal_gauss)
+plt.title("Señal con Ruido Gaussiano")
+plt.xlabel("Tiempo")
+plt.ylabel("Amplitud")
+plt.grid()
+plt.show()
+```
+se genera ruido gaussiano utilizando una distribución normal con media cero y una desviación estándar de 0.1, con el mismo número de muestras que la señal original. Luego, este ruido se suma a la señal ECG para obtener una señal contaminada. Después, se calcula el valor del SNR comparando la señal original con el ruido agregado y se imprime el resultado en decibeles. Finalmente, se grafica la señal con ruido gaussiano en función del tiempo para observar visualmente cómo el ruido afecta la forma de la señal.<br> 
+
+```
+# b) RUIDO IMPULSO
+ruido_impulso = np.zeros(n)
+num_impulsos = int(0.05 * n)
+indices = np.random.randint(0, n, num_impulsos)
+
+for i in indices:
+    ruido_impulso[i] = np.random.choice([-1, 1]) * np.max(ecg)
+
+senal_impulso = ecg + ruido_impulso
+
+snr_impulso = calcular_snr(ecg, ruido_impulso)
+print("SNR con ruido impulso:", snr_impulso, "dB")
+
+plt.figure(figsize=(10,4))
+plt.plot(tiempo, senal_impulso)
+plt.title("Señal con Ruido Impulso")
+plt.xlabel("Tiempo")
+plt.ylabel("Amplitud")
+plt.grid()
+plt.show()
+```
+se genera ruido tipo impulso, también conocido como ruido “sal y pimienta”. Primero, se crea un arreglo de ceros del mismo tamaño que la señal. Luego, se selecciona aleatoriamente un 5% de las muestras y en esas posiciones se agregan valores positivos o negativos con una amplitud similar al valor máximo de la señal, simulando picos bruscos. Después, este ruido se suma a la señal original para obtener la señal contaminada. Finalmente, se calcula el SNR para evaluar cuánto afecta este tipo de ruido y se grafica la señal con ruido impulso para observar visualmente las alteraciones producidas.<br>
+
+
+```
+# c) RUIDO TIPO ARTEFACTO
+frecuencia = 1
+ruido_artefacto = 0.2 * np.sin(2 * np.pi * frecuencia * tiempo)
+
+senal_artefacto = ecg + ruido_artefacto
+
+snr_artefacto = calcular_snr(ecg, ruido_artefacto)
+print("SNR con ruido tipo artefacto:", snr_artefacto, "dB")
+
+plt.figure(figsize=(10,4))
+plt.plot(tiempo, senal_artefacto)
+plt.title("Señal con Ruido Tipo Artefacto")
+plt.xlabel("Tiempo")
+plt.ylabel("Amplitud")
+plt.grid()
+plt.show()
+```
+En este fragmento se genera un ruido tipo artefacto simulando una señal senoidal de baja frecuencia. Primero, se define una frecuencia y se crea el ruido utilizando una función seno multiplicada por una amplitud pequeña (0.2), lo que representa una interferencia periódica similar a movimientos o perturbaciones externas. Luego, este ruido se suma a la señal ECG original para obtener la señal contaminada. Después, se calcula el SNR para medir cuánto afecta este tipo de ruido a la señal y finalmente se grafica la señal con ruido tipo artefacto para visualizar el efecto producido.<br> 
+#### Señales Contaminadas
+|RUIDO    | SNR  |
+|-----------------|----------|
+|gaussiano | 24.29744293874751 dB |
+|impulso | 10.35433655049757 dB |
+|artefacto | 21.1391686646264 dB |
+
+
+<img width="443" height="204" alt="image" src="https://github.com/user-attachments/assets/63ca7136-867b-439f-850e-0b8e9074c7c2" /><br>
+En la gráfica se observa que el ruido gaussiano genera pequeñas fluctuaciones aleatorias alrededor de la señal original, afectando principalmente la línea base. A diferencia del ruido impulso, no se presentan picos abruptos sino variaciones continuas y más suaves. La forma general del ECG se mantiene claramente visible. El valor de SNR ≈ 24.30 dB indica que la señal predomina ampliamente sobre el ruido, por lo que la calidad de la señal no se ve gravemente afectada.<br><br>
+
+<img width="434" height="206" alt="image" src="https://github.com/user-attachments/assets/5c3dd5ef-af78-4a2a-81a2-a4662680b8bd" /><br>
+En la gráfica se observa que el ruido impulso genera picos abruptos positivos y negativos que no corresponden al comportamiento normal del ECG. Aunque la forma general de la señal aún se distingue, las perturbaciones afectan notablemente su calidad. El valor de SNR ≈ 10.35 dB indica que la señal todavía predomina sobre el ruido, pero la interferencia es suficientemente significativa como para alterar el análisis de la señal.<br><br>
+
+<img width="434" height="209" alt="image" src="https://github.com/user-attachments/assets/80171d7a-311d-41fa-a3b0-29fabc0d2a59" /><br>
+En la gráfica se observa que el ruido tipo artefacto introduce una variación periódica de baja frecuencia que modifica la línea base de la señal ECG. A diferencia del ruido gaussiano, este no es completamente aleatorio, sino que genera una oscilación continua que se superpone a la señal original. La morfología del ECG aún se distingue, pero se aprecia una distorsión en la base. El valor de SNR ≈ 21.14 dB indica que la señal sigue predominando sobre el ruido, aunque el efecto es más notable que en el caso del ruido gaussiano.<br><br>
+
+
