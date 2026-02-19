@@ -230,5 +230,65 @@ Este fragmento de código genera un histograma de la señal ECG centrada (`ecg_c
 
 En general, el análisis estadístico permitió entender mejor el comportamiento de la señal ECG. Se observó que la mayoría de los valores se concentran alrededor de la línea base, pero existen picos altos asociados a los latidos, lo que hace que la distribución no sea normal. La variabilidad y los valores extremos obtenidos son coherentes con la forma típica de una señal electrocardiográfica. En conjunto, los resultados muestran que la señal fue correctamente adquirida y procesada. <br>
 
+###### Calculos Manuales
+```
+import numpy as np
+import matplotlib.pyplot as plt
 
+# Cargar datos
+data = np.loadtxt("aleja.txt")
+# Separar columnas
+tiempo = data[:, 0]
+ecg = data[:, 1]
+n = len(ecg)
+
+
+# MEDIA
+suma = 0
+for valor in ecg:
+    suma += valor
+media = suma / n
+
+
+# VARIANZA 
+suma_var = 0
+for valor in ecg:
+    suma_var += (valor - media) ** 2
+varianza = suma_var / n
+
+
+# DESVIACIÓN ESTÁNDAR
+desviacion = varianza ** 0.5
+
+
+# MÁXIMO Y MÍNIMO
+maximo = ecg[0]
+minimo = ecg[0]
+for valor in ecg:
+    if valor > maximo:
+        maximo = valor
+    if valor < minimo:
+        minimo = valor
+
+# COEFICIENTE DE VARIACIÓN
+cv = desviacion / abs(media)
+
+# IMPRIMIR RESULTADOS
+print("Media:", media)
+print("Varianza:", varianza)
+print("Desviación estándar:", desviacion)
+print("Valor máximo:", maximo)
+print("Valor mínimo:", minimo)
+print("Coeficiente de variación:", cv)
+```
+| ESTADISTICO     | VALOR   |
+|-----------------|----------|
+|Media | -1.4835718749999987 |
+|Varianza | 0.3988559331778858 |
+|Desviación estándar | 0.6315504201391096 |
+|Valor máximo | 2.222725 |
+|Valor mínimo | -2.50808 |
+Coeficiente de variación | 0.425695870069733 |
+<br> 
+Este código realiza el cálculo manual de las principales medidas estadísticas de la señal ECG sin utilizar funciones automáticas de NumPy. Primero, carga los datos desde el archivo y separa la señal. Luego, calcula la media sumando todos los valores y dividiéndolos entre el número total de datos. A partir de esta media, obtiene la varianza usando la fórmula matemática, y la desviación estándar como la raíz cuadrada de la varianza. También determina el valor máximo y mínimo comparando cada dato uno por uno. Finalmente, calcula el coeficiente de variación y muestra todos los resultados en pantalla. <br>
 ## PARTE C
