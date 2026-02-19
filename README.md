@@ -45,11 +45,11 @@ print(f"Número total de muestras: {numero_muestras}")
 print(f"Media de la señal: {media:.6f}")
 ```
 Este codigo dio como resultado:
-
+```
 Suma total de todos los valores: -199094.335000
 Número total de muestras: 650000
 Media de la señal: -0.306299
-
+```
 ## PARTE B
 Durante la segunda parte de nuestra practica, una señal fisiológica fue producida experimentalmente por medio del generador de señales biológicas del laboratorio.
 Se empleó un sistema de adquisición de datos (DAQ) para obtenerlo, el cual fue conectado físicamente al PC por medio de USB y configurado con el controlador NI-DAQmx.
