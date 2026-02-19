@@ -22,9 +22,9 @@ plt.ylabel("Amplitud [mV]")
 plt.show()
 ```
 En el codigo se programo para permirir la visualización de 10 segundos de la señal tomada, ademas se hizo uso de funciones de pyton como:
--*wfdb.rdrecord*: Se encarga de leer los archivos .hea y .dat reconstruye la señal degital.
--*plt.plot()*: Se encarga de dibujarla señal.
--*plt.xlabel() y plt.ylabel()* Se encargan de etiquetar  los ejes.
+- *wfdb.rdrecord*: Se encarga de leer los archivos .hea y .dat reconstruye la señal degital.
+- *plt.plot()*: Se encarga de dibujarla señal.
+- *plt.xlabel() y plt.ylabel()* Se encargan de etiquetar  los ejes.
 
 
 ## PARTE B
