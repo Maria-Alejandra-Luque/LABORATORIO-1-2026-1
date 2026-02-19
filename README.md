@@ -231,6 +231,51 @@ plt.show()
 ```
 y la gráfica obtenida fue:
 ![Señal ECG](señalpyton.jpeg)
+#### *Asimetría*
+Es la encargada de medir la falta de uniformidad en la distribución de la señal respecto a su media. En cardiología, permite identificar si los datos se concentran en valores bajos o altos, lo que ayuda a detectar comportamientos atípicos que no son visibles con un simple promedio.
+```
+import numpy as np
+
+media = np.mean(senal)
+desv = np.std(senal)
+N = len(senal) 
+# Skewness manual
+suma_skew = 0
+for x in senal:
+    suma_skew += ((x - media) / desv) ** 3
+
+skew_manual = suma_skew / N
+print("Skewness manual:", skew_manual)
+
+Skewness manual: 4.4261375883058385
+
+```
+Ahora Utilizando las Librerias
+```
+stats.skew(senal)
+
+print("Skewness (Python):", stats.skew(senal))
+
+Skewness (Python): 4.426137588317254
+```
+### *Curtosis* 
+Este valor estadístico describe la forma de la distribución: si es muy esbelta (puntiaguda) o más bien plana. Nos ayuda a entender si la señal cardíaca es constante y estable, o si presenta 'colas pesadas', lo que significa que existen fluctuaciones raras pero intensas.
+```
+suma_kurt = 0
+for x in senal:
+    suma_kurt += ((x - media) / desv) ** 4
+
+curt_manual = suma_kurt / N
+print("Curtosis manual:", curt_manual)
+Curtosis manual: 28.41310584780715
+```
+Comparandolo con el resultado obtenido por las librerias
+```
+stats.kurtosis(senal, fisher=False)
+print("Curtosis (Python):", stats.kurtosis(senal, fisher=False))
+Curtosis (Python): 28.413105847832405
+```
+
 
 ## PARTE B
 Durante la segunda parte de nuestra practica, una señal fisiológica fue producida experimentalmente por medio del generador de señales biológicas del laboratorio.
