@@ -21,6 +21,11 @@ plt.xlabel("Tiempo [s]")
 plt.ylabel("Amplitud [mV]")
 plt.show()
 ```
+En el codigo se programo para permirir la visualización de 10 segundos de la señal tomada, ademas se hizo uso de funciones de pyton como:
+1.* wfdb.rdrecord * Se encarga de leer los archivos .hea y .dat reconstruye la señal degital.
+2.plt.plot() Se encarga de dibujarla señal.
+3.plt.xlabel() y plt.ylabel() Se encargan de etiquetar  los ejes.
+
 
 ## PARTE B
 Durante la segunda parte de nuestra practica, una señal fisiológica fue producida experimentalmente por medio del generador de señales biológicas del laboratorio.
