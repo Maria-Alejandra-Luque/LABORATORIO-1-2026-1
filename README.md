@@ -291,4 +291,20 @@ print("Coeficiente de variación:", cv)
 Coeficiente de variación | 0.425695870069733 |
 <br> 
 Este código realiza el cálculo manual de las principales medidas estadísticas de la señal ECG sin utilizar funciones automáticas de NumPy. Primero, carga los datos desde el archivo y separa la señal. Luego, calcula la media sumando todos los valores y dividiéndolos entre el número total de datos. A partir de esta media, obtiene la varianza usando la fórmula matemática, y la desviación estándar como la raíz cuadrada de la varianza. También determina el valor máximo y mínimo comparando cada dato uno por uno. Finalmente, calcula el coeficiente de variación y muestra todos los resultados en pantalla. <br>
+
 ## PARTE C
+### Relación Señal-Ruido (SNR)
+La Relación Señal-Ruido (SNR, Signal to Noise Ratio) es una medida que permite cuantificar qué tan fuerte es una señal en comparación con el ruido que la afecta. Matemáticamente, se define como la relación entre la potencia de la señal original y la potencia del ruido. Generalmente se expresa en decibeles (dB) y se calcula como:<br>
+SNR=10log10​(Pruido​Psen~al​​) <br>
+**Un valor alto de SNR indica que la señal es mucho más fuerte que el ruido, mientras que un valor bajo indica que el ruido afecta significativamente la señal.**<br>
+
+#### Ruido gaussiano
+El ruido gaussiano es un tipo de ruido aleatorio que sigue una distribución normal. Para simularlo, se genera una señal aleatoria con distribución normal y se suma a la señal original. Posteriormente, se calcula el SNR comparando la potencia de la señal original con la potencia del ruido agregado.<br>
+#### Ruido impulso
+El ruido impulso, también conocido como ruido tipo “sal y pimienta”, se caracteriza por presentar picos abruptos en puntos específicos de la señal. Para simularlo, se agregan valores grandes en posiciones aleatorias de la señal. Luego, se calcula el SNR utilizando la misma relación entre potencia de señal y potencia de ruido.<br>
+#### Ruido artefacto
+El ruido tipo artefacto simula interferencias más estructuradas, como movimientos o perturbaciones externas, y suele representarse como señales de baja frecuencia superpuestas a la señal original. Después de agregar este tipo de ruido, se calcula el SNR para evaluar cuánto afecta a la señal.<br>
+
+### Algoritmo 
+
+### Codigo 
