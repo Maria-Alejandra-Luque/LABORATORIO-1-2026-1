@@ -26,6 +26,25 @@ En el codigo se programo para permirir la visualización de 10 segundos de la se
 - *plt.plot()*: Se encarga de dibujarla señal.
 - *plt.xlabel() y plt.ylabel()* Se encargan de etiquetar  los ejes.
 
+#### Calculos Estadisticos
+#####Cálculo de la media
+La media aritmética representa el promedio de la señal, permitiendo establecer referencias de una actividad normal cardiaca para poder así realizar una correcta detección de  patrones anormales. El codigo manual se realizo de la siguente manera
+´´´
+suma_total = 0
+for i in range(len(senal)):
+    suma_total += senal[i]  
+numero_muestras = len(senal)
+#Calcular la media (suma total / número de muestras)
+media = suma_total / numero_muestras
+umero_muestras = len(senal)
+#Calcular la media (suma total / número de muestras)
+media = suma_total / numero_muestras
+print("\n--- RESULTADOS DEL CÁLCULO DE LA MEDIA ---")
+print(f"Suma total de todos los valores: {suma_total:.6f}")
+print(f"Número total de muestras: {numero_muestras}")
+print(f"Media de la señal: {media:.6f}")
+´´´
+
 
 ## PARTE B
 Durante la segunda parte de nuestra practica, una señal fisiológica fue producida experimentalmente por medio del generador de señales biológicas del laboratorio.
