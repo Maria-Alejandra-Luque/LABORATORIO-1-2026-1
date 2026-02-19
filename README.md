@@ -105,7 +105,7 @@ El DAQ recibió la señal analógica del generador, y esta fue transformada a di
 estadístico y poder realizar su grafica correspondiente.De esta manera, se calcularon los parámetros estadísticos obtenidos en la Parte A y se comparó la señal descargada
 de Physionet con la señal capturada usando el DAQ, lo que evidenció sus semejanzas y diferencias.
 ### ALGORITMO 
-<img width="353" height="272" alt="image" src="https://github.com/user-attachments/assets/e1a0fc87-31bd-466e-b6f5-eec42b3aa14c" /><br>
+<img width="553" height="472" alt="image" src="https://github.com/user-attachments/assets/e1a0fc87-31bd-466e-b6f5-eec42b3aa14c" /><br>
 
 ### CODIGO
 #### Grafica de la señal 
@@ -315,6 +315,7 @@ El ruido impulso, también conocido como ruido tipo “sal y pimienta”, se car
 El ruido tipo artefacto simula interferencias más estructuradas, como movimientos o perturbaciones externas, y suele representarse como señales de baja frecuencia superpuestas a la señal original. Después de agregar este tipo de ruido, se calcula el SNR para evaluar cuánto afecta a la señal.<br>
 
 ### Algoritmo 
+<img width="377" height="311" alt="image" src="https://github.com/user-attachments/assets/4e725fc6-ea8c-4dae-ba5d-c26c73ab87ea" /><br>
 
 ### Codigo 
 
