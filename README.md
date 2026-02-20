@@ -21,7 +21,7 @@ obtenidos.
 ## PARTE A
 En esta primera etapa se procedió a seleccionar y descargar una señal fisiológica desde la plataforma PhysioNet, verificando previamente que su duración fuera suficiente para permitir el cálculo adecuado de los estadísticos solicitados. Posteriormente, la señal fue cargada en el entorno de Python y se emplearon librerías como *matplotlib* para su visualización gráfica. Este proceso constituyó el punto de partida del estudio estadístico, apoyándose en herramientas computacionales que permiten caracterizar de manera precisa las principales propiedades de la señal analizada.
 ### AlGORITMO
-![Señal ECG](mapa.jpeg)
+![Señal ECG](mapita.jpeg)
 ### CÓDIGO
 Para el inicio del código para poder leer y procesar la señal fisiológica como un electrocardiograma (ECG), proveniente de un sitio web como  Physionet, inicialmente se descargó la señal en los formatos. dat y .hea, estos formatos se guardaron en la misma carpeta del archivo. Posteriormente a eso se procedió a la instalación de la librería *wfdb* a través de anaconda prompt.ademas se hizo uso de la librería matplotlib para su visualización, en la gráfica se observan características típicas de un ECG como la onda P, el complejo QRS y las ondas T.
 ![Señal ECG](anacondaprompt.jpeg)
