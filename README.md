@@ -20,6 +20,8 @@ obtenidos.
 
 ## PARTE A
 En esta primera etapa se procedió a seleccionar y descargar una señal fisiológica desde la plataforma PhysioNet, verificando previamente que su duración fuera suficiente para permitir el cálculo adecuado de los estadísticos solicitados. Posteriormente, la señal fue cargada en el entorno de Python y se emplearon librerías como *matplotlib* para su visualización gráfica. Este proceso constituyó el punto de partida del estudio estadístico, apoyándose en herramientas computacionales que permiten caracterizar de manera precisa las principales propiedades de la señal analizada.
+### AlGORITMO
+![Señal ECG](mapa.jpeg)
 ### CÓDIGO
 Para el inicio del código para poder leer y procesar la señal fisiológica como un electrocardiograma (ECG), proveniente de un sitio web como  Physionet, inicialmente se descargó la señal en los formatos. dat y .hea, estos formatos se guardaron en la misma carpeta del archivo. Posteriormente a eso se procedió a la instalación de la librería *wfdb* a través de anaconda prompt.ademas se hizo uso de la librería matplotlib para su visualización, en la gráfica se observan características típicas de un ECG como la onda P, el complejo QRS y las ondas T.
 ![Señal ECG](anacondaprompt.jpeg)
@@ -619,6 +621,34 @@ En la gráfica se observa que el ruido impulso genera picos abruptos positivos y
 
 <img width="434" height="209" alt="image" src="https://github.com/user-attachments/assets/80171d7a-311d-41fa-a3b0-29fabc0d2a59" /><br>
 En la gráfica se observa que el ruido tipo artefacto introduce una variación periódica de baja frecuencia que modifica la línea base de la señal ECG. A diferencia del ruido gaussiano, este no es completamente aleatorio, sino que genera una oscilación continua que se superpone a la señal original. La morfología del ECG aún se distingue, pero se aprecia una distorsión en la base. El valor de SNR ≈ 21.14 dB indica que la señal sigue predominando sobre el ruido, aunque el efecto es más notable que en el caso del ruido gaussiano.<br><br>
+
+### PREGUNTAS PARA LA DISCUSIÓN
+
+- ¿Los valores estadísticos calculados sobre la señal sintética son exactamente iguales a los obtenidos a partir de la señal real? ¿Por qué?
+
+Mirándolo de una manera objetiva los resultados obtenidos para la señal sintética difícilmente pueden ser iguales a los de la señal real debido a que la señal real proveniente de PhysioNet corresponde al registro fisiológico real en el cual hay fluctuaciones naturales propias del paciente;  en contraste la señal sintética fue generada de manera experimental a través de un generador biológico Lo cual permite que sea una señal más limpia.
+
+Al momento de analizar las señales se puede observar que la señal sintética obtuvo un mayor desplazamiento offset esto es posible deducirlo debido a su media más negativa,  además la señal generada mostró una mayor desviación estándar mientras que la señal real obtuvo un mayor coeficiente de variación. 
+
+- ¿Afecta el tipo de ruido el valor de la SNR calculada? ¿Cuáles podrían ser las razones?
+
+En efecto dependiendo del tipo de ruido afecta directamente el valor de la SNR.
+
+ Con base en los valores obtenidos se obtuvo que el ruido gaussiano puede generar pequeñas fluctuaciones uniformemente distribuidas lo que permite que la potencia del ruido sea baja.
+
+Por otro lado se observó que el ruido considerado tipo artefacto puede llegar a inducir variaciones periódicas que pueden afectar la frecuencia trabajada.
+
+Finalmente el ruido impulso puede producir picos abruptos de una gran amplitud lo que representa que la potencia del ruido sea considerablemente más grande.
+
+Finalmente se puede observar que la afectación del ruido no es solamente cuantitativamente  la SNR sino también se ve afectada la morfología de la señal
+
+### CONCLUSIONES
+- Se encontró que los parámetros estadísticos utilizados durante el laboratorio como la media, desviación estándar, asimetría y curtosis son herramientas fundamentales para el filtrado de Señales para permitirle al profesional de la salud poder otorgar un diagnóstico acertado.
+
+- La conciencia entre los cálculos manuales y las funciones de las librerías evidencia la precisión de cálculos de python a la hora de tratar de procesamiento de datos masivos, lo que permite desarrollar un análisis eficiente.
+
+- El análisis de snr permitió encontrar que el ruido de impulso degrada la señal del ECG Mientras que el ruido de artefacto altera la morfología sin destruir la información de los picos.  estas afirmaciones subrayan la necesidad de construcción de filtros específicos dependiendo el entorno en el que se utilicen los dispositivos de recolección de datos como el ECG
+
 
 
 *** TRABAJADO CON JUPYTER: http://localhost:8889/notebooks/Desktop/Procesamiento%202026/Untitled.ipynb? ***
